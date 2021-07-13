@@ -407,11 +407,13 @@ func (self *Parser) ParseValueExpression() (EXPRESSION_NODE, error) {
 		if err != nil {
 			return nil, err
 		}
+		self.SetPosition()
 		body, err := self.ParseExpression()
 		if err != nil {
 			return nil, err
 		}
-		return &LAMBDA_EXPRESSION{args, body}, nil
+		wrapped_body := []STATEMENT_NODE{&RETURN_STATEMENT{body, self.pos}}
+		return &FUNCTIONAL_EXPRESSION{"", args, wrapped_body}, nil
 	}
 
 	switch next_token := self.stream.Next(); next_token.Type {

@@ -13,13 +13,7 @@ func PrettyPrint(structure interface{}) string {
 
 func main() {
 	code := `
-	@@@
-	let counter = 100;
-	for counter <= 100 {
-		say counter;
-		counter += 1
-	};
-	say "Finished!"
+	
 	`
 	parser := core.NewParser(code)
 	ast, err := parser.ParseProgram()

@@ -155,9 +155,11 @@ type INDEX_OPERATOR_EXPRESSION struct {
 
 func (s *INDEX_OPERATOR_EXPRESSION) expressionNode() {}
 
+/*
 type LAMBDA_EXPRESSION struct {
 	Args []string
 	Body EXPRESSION_NODE
 }
 
 func (s *LAMBDA_EXPRESSION) expressionNode() {}
+*/
