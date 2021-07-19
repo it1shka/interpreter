@@ -26,7 +26,9 @@ func (self *Scope) Init(identifier string, value Object) error {
 }
 
 func (self *Scope) Set(identifier string, value Object) (Object, error) {
-	if _, ok := self.current[identifier]; ok {
+	if self.current[identifier] != nil {
+		fmt.Println("Not Nil :)")
+		fmt.Printf("last val: %s", self.current[identifier].ToString())
 		self.current[identifier] = value
 		return value, nil
 	}

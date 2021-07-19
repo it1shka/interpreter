@@ -12,8 +12,9 @@ func PrettyPrint(structure interface{}) string {
 }
 
 func main() {
-	code := `
-	
+	code := `           for true {
+		-true;
+	}
 	`
 	parser := core.NewParser(code)
 	ast, err := parser.ParseProgram()
@@ -22,4 +23,10 @@ func main() {
 	}
 
 	fmt.Println(PrettyPrint(ast))
+
+	interpreter := core.NewInterpreter()
+	res := interpreter.Interpret(ast)
+
+	fmt.Println()
+	fmt.Println(res)
 }
